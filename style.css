@@ -16,3 +16,28 @@
     font-size:22px;
     
 }
+.copy_right_footer{
+    position:fixed;
+    color:grey;
+    bottom:0;
+    width:100%;
+    background-color: white;
+    line-height:3;
+    text-align:center;
+    
+}
+.modal-dialog{
+    width:90%;
+
+}
+h4{
+    background-color:white;
+    line-height:2;
+    margin:0px;
+
+}
+.modal-body{
+    text-align: left;
+    font-size: 20px;
+    
+}
