@@ -20,9 +20,29 @@ var ball = {
     dx:3,
     dy:3
 }
+function modelLoaded(){
+	console.log(modelLoaded);
+
+}
 
 function setup(){
-  var canvas =  createCanvas(700,600);
+  canvas =  createCanvas(700,600);
+  canvas.parent('canvas');
+  video = createCapture(VIDEO);
+	video.size(700, 600);
+  video.hide();
+	poseNet = ml5.poseNet(video, modelLoaded);
+	poseNet.on('pose',gotPoses);
+}
+function gotPoses(results)
+{
+	if(results.length > 0){
+		rightWristX = results[0].pose.rightWrist.X;
+		rightWristY = results[0].pose.rightWrist.Y;
+    scoreRightWrist = results[0].pose.keypoints[10].score;
+		console.log(scoreRightWrist);
+
+	}
 }
 
 
