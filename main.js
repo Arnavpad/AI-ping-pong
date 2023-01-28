@@ -1,9 +1,10 @@
 rightWristX = 0;
 rightWristY = 0;
 scoreRightWrist = 0;
-GameStatus = "";
+game_status = "";
 
 /*created by prashant shukla */
+
 
 var paddle2 =10,paddle1=10;
 
@@ -24,8 +25,14 @@ var ball = {
     dx:3,
     dy:3
 }
+function preload(){
+  ball_touch_paddel = loadSound("ball_touch_paddel.wav");
+  missed = loadSound("missed.wav");
+
+}
+
 function modelLoaded(){
-	console.log(modelLoaded);
+	console.log('poseNet is initialised');
 
 }
 
@@ -57,6 +64,7 @@ function startGame(){
 
 
 function draw(){
+  if(game_status == "start"){
 
  background(0); 
  image(video, 0, 0, 700, 600);
@@ -102,6 +110,7 @@ function draw(){
    
    //function move call which in very important
     move();
+}
 }
 
 
